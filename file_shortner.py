@@ -12,8 +12,8 @@ def find(s, ch):
 def quotation_exractor(context):
 	#list_of_letters=context.split()
 	q_list=[]
-	opening_list = find(str(context), "ì" )
-	closing_list = find(str(context), "î")
+	opening_list = find(str(context), "‚Äú" )
+	closing_list = find(str(context), "‚Äù")
 
 	if len(closing_list)==len(opening_list):
 		for i in range(len(opening_list)):
@@ -94,16 +94,16 @@ for i in range(1,512):
             output.close()
 
     elif (str_new in f_long):
-    	file_context= open("D:/NTU/Year 4/Semester 2/Shimmy shimmy ya/Analysis of news data/Context article/Full length/"+str_new,"r")
+    	file_context= open("D:/NTU/Year 4/Semester 2/FYP/Analysis of news data/Context article/Full length/"+str_new,"r")
     	file_context = file_context.read()
     	q_list = quotation_exractor(file_context)
-    	with open("D:/NTU/Year 4/Semester 2/Shimmy shimmy ya/Analysis of news data/Context article/Quotes/"+str(i)+"_quote.txt", 'w') as output:
+    	with open("D:/NTU/Year 4/Semester 2/FYP/Analysis of news data/Context article/Quotes/"+str(i)+"_quote.txt", 'w') as output:
     		output.writelines(q_list)
     		output.flush()
     		output.close()
     	cleaned = clean_data(file_context, list_ofListofCountries[i-1])
     	
-    	with open("D:/NTU/Year 4/Semester 2/Shimmy shimmy ya/Analysis of news data/Context article/Shortened/"+str(i)+".txt", 'w') as output1:
+    	with open("D:/NTU/Year 4/Semester 2/FYP/Analysis of news data/Context article/Shortened/"+str(i)+".txt", 'w') as output1:
     		output1.writelines(cleaned)
     		output1.flush()
     		output1.close()
@@ -112,13 +112,13 @@ for i in range(1,512):
         if file_context == "":
             continue
         q_list = quotation_exractor(file_context)
-        with open("D:/NTU/Year 4/Semester 2/Shimmy shimmy ya/Analysis of news data/Context article/Quotes/"+str(i)+"_quote.txt", 'w') as output:
+        with open("D:/NTU/Year 4/Semester 2/FYP/Analysis of news data/Context article/Quotes/"+str(i)+"_quote.txt", 'w') as output:
                                         output.writelines(q_list)
                                         output.flush()
                                         output.close()
         cleaned = clean_data(file_context, list_ofListofCountries[i-1])
 
-        with open("D:/NTU/Year 4/Semester 2/Shimmy shimmy ya/Analysis of news data/Context article/Shortened/"+str(i)+".txt", 'w') as output1:
+        with open("D:/NTU/Year 4/Semester 2/FYP/Analysis of news data/Context article/Shortened/"+str(i)+".txt", 'w') as output1:
                                         output1.writelines(cleaned)
                                         output1.flush()
                                         output1.close()
